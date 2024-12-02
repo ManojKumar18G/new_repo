@@ -4,9 +4,7 @@ COPY package.json /app
 RUN npm install
 COPY . .
 RUN chmod +x node_modules/.bin/react-scripts
+RUN npm install --save,
 RUN npm run build
-RUN npm install -g serve
-RUN npm install serve --save-dev
-RUN serve -s build
 EXPOSE 3000
 CMD ["npm","start"]
