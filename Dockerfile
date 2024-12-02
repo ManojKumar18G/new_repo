@@ -7,5 +7,6 @@ RUN chmod +x node_modules/.bin/react-scripts
 RUN npm run build
 RUN npm install -g serve
 RUN npm install serve --save-dev
+RUN serve -s build
 EXPOSE 3000
 CMD ["npm","start"]
