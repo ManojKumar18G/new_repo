@@ -12,9 +12,9 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      docker build -t mylabacr13.azurecr.io/web-game:tag 2048-game
-      az acr login -n mylabacr13
-      docker push mylabacr13.azurecr.io/web-game:tag
+      docker build -t mydemorepo.azurecr.io/web-game:tag 2048-game
+      az acr login -n mydemorepo
+      docker push mydemorepo.azurecr.io/web-game:tag
 
 - script: cat 01_kubernetes_aks/app-deploy.yaml
 
@@ -22,8 +22,8 @@ steps:
   inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscriptionEndpoint: 'Towards-AzurePortal'
-    azureResourceGroup: 'TestLab-RG'
-    kubernetesCluster: 'testlab-aks'
+    azureResourceGroup: 'demotest'
+    kubernetesCluster: 'mydemoclus'
     namespace: 'default'
     command: 'apply'
     useConfigurationFile: true
@@ -31,5 +31,5 @@ steps:
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
     azureSubscriptionEndpointForSecrets: 'Towards-AzurePortal'
-    azureContainerRegistry: 'mylabacr13.azurecr.io'
+    azureContainerRegistry: 'mydemorepo.azurecr.io'
     forceUpdate: false
