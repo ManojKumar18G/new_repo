@@ -21,7 +21,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
       - name: todo
-        image: mylabacr13.azurecr.io/web-game:tag
+        image: mylabacr13.azurecr.io/todo:tag new_repo
         ports:
         - containerPort: 80
         resources:
